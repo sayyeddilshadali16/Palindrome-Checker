@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        body {
+            background-image: url('https://plus.unsplash.com/premium_photo-1666739032615-ecbd14dfb543?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            height: 350px;
+            width: 500px;
+            margin-top: 120px;
+            padding: 13px;
+            padding-top: 80px;
+            background-color: rgba(255, 255, 255, 0.052);
+            backdrop-filter: blur(40px);
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 500px;
+            border-radius: 15px;
+            border: 1px solid gray;
+        }
+
+        h1,
+        input,
+        button,
+        h3 {
+            margin: 10px;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 0;
+        }
+
+        h1,
+        h3 {
+            color: white;
+        }
+
+        button {
+            color: white;
+            background: rgb(204, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PALINDROME</h1>
+        <h1>CHECKER</h1>
+        <input id="text" placeholder="Enter a word">
+        <button id="checkPalindrome"> Check </button>
+        <h3 id="head"></h3>
+    </div>
+    <!-- <script>
+        function checkPalindrome(str) {
+
+            let string = document.getElementById('text').value;
+            let strlen = string.length;
+            for (let i = 0; i < strlen / 2; i++) {
+                if (string[i] !== string[strlen - 1 - i]) {
+                    document.getElementById('head').innerHTML = "The word" + " " + strlen + " " + "is not a Palindrome"
+                }
+            }
+            document.getElementById('head').innerHTML = "The word" + " " + strlen + " " + "is a Palindrome"
+        }
+    </script> -->
+
+    <script>
+        var checkButton = document.getElementById("checkPalindrome");
+
+        function isPalindrome(str) {
+            'use strict';
+
+            str = str.replace(/[^a-z0-9]+/gi, "").toLowerCase();
+            var reversedStr = str.split("").reverse().join("");
+            return str === reversedStr;
+        }
+
+        checkButton.addEventListener("click", function () {
+            'use strict';
+
+            var value = document.getElementById("text").value;
+            var notification = document.getElementById("head");
+
+            if (isPalindrome(value)) {
+                notification.innerHTML = "The word" + " " + value + " " + "is a Palindrome";
+                
+            } else {
+                notification.innerHTML = "The word" + " " + value + " " + "is not a palindrome";
+                
+            }
+        });
+    </script>
+</body>
+
+</html>
